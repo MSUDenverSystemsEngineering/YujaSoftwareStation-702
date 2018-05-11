@@ -145,6 +145,7 @@ Try {
 		[string]$installPhase = 'Post-Installation'
 
 		## <Perform Post-Installation tasks here>
+		Execute-Process -Path "$envSystem32Directory\netsh.exe" -Parameters "advfirewall firewall add rule name=`"Yuja Software Station`" dir=in action=allow program=`"C:\program files (x86)\yuja\yuja software station\yuja software station.exe`" description=`"Yuja Software Station`" enable=yes profile=any protocol=tcp edge=deferuser" -WindowStyle "Hidden"
 
 		## Display a message at the end of the install
 		If (-not $useDefaultMsi) {
